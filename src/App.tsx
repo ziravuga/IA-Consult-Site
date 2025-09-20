@@ -11,8 +11,17 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  // Simple routing based on hash
-  const currentHash = window.location.hash;
+  const [currentHash, setCurrentHash] = React.useState(window.location.hash);
+
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const showBlogPost = currentHash === '#blog/parcours';
 
   if (showBlogPost) {

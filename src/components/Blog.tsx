@@ -93,30 +93,30 @@ const Blog = () => {
             <div className="p-8 lg:p-12 text-white">
               <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium mb-4">
                 <Tag className="w-3 h-3" />
-                <span>Article vedette</span>
+                <span>Parcours professionnel</span>
               </div>
               <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-                {articles[0].title}
+                L'architecte invisible : Mon odyssée numérique au service de la transparence
               </h3>
               <p className="text-blue-100 mb-6 leading-relaxed">
-                {articles[0].excerpt}
+                Ce récit retrace mon parcours, depuis les bancs de l'université jusqu'aux défis stimulants du monde professionnel, en mettant en lumière ma passion pour les technologies de l'information et la gestion des données.
               </p>
               <div className="flex items-center space-x-4 mb-6">
                 <div className="flex items-center space-x-2">
                   <User className="w-4 h-4" />
-                  <span className="text-sm">{articles[0].author}</span>
+                  <span className="text-sm">Équipe IA-Consult</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-4 h-4" />
-                  <span className="text-sm">{articles[0].date}</span>
+                  <span className="text-sm">15 Janvier 2025</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="w-4 h-4" />
-                  <span className="text-sm">{articles[0].readTime}</span>
+                  <span className="text-sm">12 min</span>
                 </div>
               </div>
               <a 
-                href="#" 
+                href="#blog/parcours" 
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium"
               >
                 <span>Lire l'article</span>
@@ -125,8 +125,8 @@ const Blog = () => {
             </div>
             <div className="h-64 lg:h-full">
               <img 
-                src={articles[0].image} 
-                alt={articles[0].title}
+                src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                alt="L'architecte invisible : Mon odyssée numérique au service de la transparence"
                 className="w-full h-full object-cover"
               />
             </div>

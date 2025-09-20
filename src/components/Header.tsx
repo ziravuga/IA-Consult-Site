@@ -5,6 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAIServicesOpen, setIsAIServicesOpen] = useState(false);
+  const [isBlogOpen, setIsBlogOpen] = useState(false);
 
   const services = [
     'Conseil & Audit IA',
@@ -20,6 +21,14 @@ const Header = () => {
     { name: 'Data Science', description: 'Analyse et visualisation de données' },
     { name: 'Automatisation RPA', description: 'Robotisation des processus' },
     { name: 'IA Prédictive', description: 'Prévisions et optimisation' }
+  ];
+
+  const blogCategories = [
+    { name: 'Tous les articles', href: '#actualites' },
+    { name: 'Parcours professionnel', href: '#blog/parcours' },
+    { name: 'Technologies IA', href: '#actualites' },
+    { name: 'Transformation digitale', href: '#actualites' },
+    { name: 'Data Science', href: '#actualites' }
   ];
 
   return (
@@ -127,9 +136,37 @@ const Header = () => {
             <a href="#prototypes" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Prototypes
             </a>
-            <a href="#actualites" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              Actualités
-            </a>
+            
+            {/* Blog/Actualités Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                onMouseEnter={() => setIsBlogOpen(true)}
+                onMouseLeave={() => setIsBlogOpen(false)}
+              >
+                <span>Actualités</span>
+                <ChevronDown className="w-4 h-4" />
+              </button>
+              
+              {isBlogOpen && (
+                <div
+                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
+                  onMouseEnter={() => setIsBlogOpen(true)}
+                  onMouseLeave={() => setIsBlogOpen(false)}
+                >
+                  {blogCategories.map((category, index) => (
+                    <a
+                      key={index}
+                      href={category.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      {category.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <a href="#contact" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
               Contact
             </a>

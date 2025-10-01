@@ -232,14 +232,14 @@ const Header = () => {
               </button>
               <button
                 onClick={() => setLanguage('en')}
-                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
+                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all font-semibold ${
                   language === 'en'
-                    ? 'bg-blue-100 ring-2 ring-blue-500'
-                    : 'hover:bg-gray-100'
+                    ? 'bg-blue-100 ring-2 ring-blue-500 text-blue-700'
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
                 title="English"
               >
-                <span className="text-lg">🇬🇧</span>
+                <span className="text-sm">EN</span>
               </button>
             </div>
           </div>
@@ -338,14 +338,14 @@ const Header = () => {
                 </button>
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all ${
+                  className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all font-semibold ${
                     language === 'en'
-                      ? 'bg-blue-100 ring-2 ring-blue-500'
-                      : 'hover:bg-gray-100'
+                      ? 'bg-blue-100 ring-2 ring-blue-500 text-blue-700'
+                      : 'text-gray-600 hover:bg-gray-100'
                   }`}
                   title="English"
                 >
-                  <span className="text-xl">🇬🇧</span>
+                  <span className="text-base">EN</span>
                 </button>
               </div>
             </div>

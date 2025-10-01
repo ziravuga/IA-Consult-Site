@@ -1,4 +1,5 @@
 import React from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -26,30 +27,34 @@ function App() {
 
   if (showBlogPost) {
     return (
-      <div className="min-h-screen">
-        <Header />
-        <main>
-          <BlogPost />
-        </main>
-        <Footer />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen">
+          <Header />
+          <main>
+            <BlogPost />
+          </main>
+          <Footer />
+        </div>
+      </LanguageProvider>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Realisations />
-        <Prototypes />
-        <Blog />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Hero />
+          <Services />
+          <About />
+          <Realisations />
+          <Prototypes />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

@@ -1,43 +1,46 @@
 import React from 'react';
 import { Brain, Cog, Users, Shield, BarChart3, MessageSquare, Eye, Zap } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
       icon: Brain,
-      title: "Conseil & Audit IA",
-      description: "Analyse de maturité numérique, diagnostic des opportunités et stratégie IA personnalisée pour votre entreprise.",
-      features: ["Audit technologique", "Stratégie IA", "ROI Analysis", "Roadmap personnalisée"]
+      titleKey: "service.consulting.title",
+      descKey: "service.consulting.desc",
+      featureKeys: ["service.consulting.f1", "service.consulting.f2", "service.consulting.f3", "service.consulting.f4"]
     },
     {
       icon: Cog,
-      title: "Développement sur mesure",
-      description: "Solutions IA personnalisées utilisant machine learning, vision artificielle et traitement du langage naturel.",
-      features: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP"]
+      titleKey: "service.development.title",
+      descKey: "service.development.desc",
+      featureKeys: ["service.development.f1", "service.development.f2", "service.development.f3", "service.development.f4"]
     },
     {
       icon: Users,
-      title: "Accompagnement sectoriel",
-      description: "Intégration IA spécialisée pour les secteurs finance, juridique, RH, commerce et audit.",
-      features: ["Finance", "Juridique", "RH", "Commerce"]
+      titleKey: "service.sectors.title",
+      descKey: "service.sectors.desc",
+      featureKeys: ["service.sectors.f1", "service.sectors.f2", "service.sectors.f3", "service.sectors.f4"]
     },
     {
       icon: Shield,
-      title: "Data Protection & Sécurité",
-      description: "Audit, protection et sécurisation des données pour la conformité RGPD et standards internationaux.",
-      features: ["Conformité RGPD", "Sécurité des données", "Audit de conformité", "Protection avancée"]
+      titleKey: "service.security.title",
+      descKey: "service.security.desc",
+      featureKeys: ["service.security.f1", "service.security.f2", "service.security.f3", "service.security.f4"]
     },
     {
       icon: MessageSquare,
-      title: "Chatbots & Automatisation",
-      description: "Développement de chatbots intelligents et automatisation des processus métiers avec IA conversationnelle.",
-      features: ["IA conversationnelle", "RPA", "Automatisation", "Support client"]
+      titleKey: "service.chatbots.title",
+      descKey: "service.chatbots.desc",
+      featureKeys: ["service.chatbots.f1", "service.chatbots.f2", "service.chatbots.f3", "service.chatbots.f4"]
     },
     {
       icon: BarChart3,
-      title: "Data Science & Analytics",
-      description: "Analyse prédictive, modélisation de données et business intelligence pour optimiser vos décisions.",
-      features: ["Analytics avancée", "Prédictions", "Modélisation", "Visualisation"]
+      titleKey: "service.data.title",
+      descKey: "service.data.desc",
+      featureKeys: ["service.data.f1", "service.data.f2", "service.data.f3", "service.data.f4"]
     }
   ];
 
@@ -47,13 +50,13 @@ const Services = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Zap className="w-4 h-4" />
-            <span>Nos Services</span>
+            <span>{t('services.badge')}</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Solutions IA complètes pour votre transformation numérique
+            {t('services.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            De la stratégie à l'implémentation, nous accompagnons votre entreprise à chaque étape de son évolution vers l'intelligence artificielle.
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -69,25 +72,25 @@ const Services = () => {
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t(service.titleKey)}</h3>
+                  <p className="text-gray-600 leading-relaxed">{t(service.descKey)}</p>
                 </div>
 
                 <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.featureKeys.map((featureKey, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-700">{feature}</span>
+                      <span className="text-sm text-gray-700">{t(featureKey)}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-100">
                   <a 
-                    href="#contact" 
+                    href="#contact"
                     className="text-blue-600 hover:text-blue-700 font-medium text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform"
                   >
-                    <span>En savoir plus</span>
+                    <span>{t('services.learnMore')}</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

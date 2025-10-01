@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
 import { Menu, X, Brain, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAIServicesOpen, setIsAIServicesOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
 
   const services = [
-    'Conseil & Audit IA',
-    'Développement sur mesure',
-    'Accompagnement sectoriel',
-    'Data Protection & Sécurité'
+    t('service.consulting.title'),
+    t('service.development.title'),
+    t('service.sectors.title'),
+    t('service.security.title')
   ];
 
   const aiServices = [
-    { name: 'Machine Learning', description: 'Modèles prédictifs avancés' },
-    { name: 'Vision Artificielle', description: 'Reconnaissance et analyse d\'images' },
-    { name: 'NLP & Chatbots', description: 'Traitement du langage naturel' },
-    { name: 'Data Science', description: 'Analyse et visualisation de données' },
-    { name: 'Automatisation RPA', description: 'Robotisation des processus' },
-    { name: 'IA Prédictive', description: 'Prévisions et optimisation' }
+    { name: 'Machine Learning', description: language === 'fr' ? 'Modèles prédictifs avancés' : 'Advanced predictive models' },
+    { name: language === 'fr' ? 'Vision Artificielle' : 'Computer Vision', description: language === 'fr' ? 'Reconnaissance et analyse d\'images' : 'Image recognition and analysis' },
+    { name: 'NLP & Chatbots', description: language === 'fr' ? 'Traitement du langage naturel' : 'Natural language processing' },
+    { name: 'Data Science', description: language === 'fr' ? 'Analyse et visualisation de données' : 'Data analysis and visualization' },
+    { name: language === 'fr' ? 'Automatisation RPA' : 'RPA Automation', description: language === 'fr' ? 'Robotisation des processus' : 'Process robotization' },
+    { name: language === 'fr' ? 'IA Prédictive' : 'Predictive AI', description: language === 'fr' ? 'Prévisions et optimisation' : 'Forecasting and optimization' }
   ];
 
   const blogCategories = [
-    { name: 'Tous les articles', href: '#actualites' },
-    { name: 'Parcours professionnel', href: '#blog/parcours' },
-    { name: 'Technologies IA', href: '#actualites' },
-    { name: 'Transformation digitale', href: '#actualites' },
-    { name: 'Data Science', href: '#actualites' }
+    { name: t('menu.allArticles'), href: '#actualites' },
+    { name: t('menu.career'), href: '#blog/parcours' },
+    { name: t('menu.aiTech'), href: '#actualites' },
+    { name: t('menu.digitalTransform'), href: '#actualites' },
+    { name: t('menu.datascience'), href: '#actualites' }
   ];
 
   const handleLinkClick = (href: string) => {
@@ -52,13 +54,13 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#accueil" 
+          <div className="hidden md:flex items-center space-x-6">
+            <a
+              href="#accueil"
               onClick={() => handleLinkClick('#accueil')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
-              Accueil
+              {t('nav.home')}
             </a>
             
             {/* Services Dropdown */}
@@ -72,7 +74,7 @@ const Header = () => {
                 }}
                 onMouseEnter={() => setIsServicesOpen(true)}
               >
-                <span>Services</span>
+                <span>{t('nav.services')}</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
@@ -107,7 +109,7 @@ const Header = () => {
                 }}
                 onMouseEnter={() => setIsAIServicesOpen(true)}
               >
-                <span>Solutions IA</span>
+                <span>{t('nav.aiSolutions')}</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
@@ -143,33 +145,33 @@ const Header = () => {
                       onClick={() => handleLinkClick('#prototypes')}
                       className="block px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 transition-colors cursor-pointer"
                     >
-                      → Voir nos prototypes
+                      {t('menu.viewPrototypes')}
                     </a>
                   </div>
                 </div>
               )}
             </div>
             
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               onClick={() => handleLinkClick('#about')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
-              À propos
+              {t('nav.about')}
             </a>
-            <a 
-              href="#realisations" 
+            <a
+              href="#realisations"
               onClick={() => handleLinkClick('#realisations')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
-              Réalisations
+              {t('nav.realisations')}
             </a>
-            <a 
-              href="#prototypes" 
+            <a
+              href="#prototypes"
               onClick={() => handleLinkClick('#prototypes')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
-              Prototypes
+              {t('nav.prototypes')}
             </a>
             
             {/* Blog/Actualités Dropdown */}
@@ -183,7 +185,7 @@ const Header = () => {
                 }}
                 onMouseEnter={() => setIsBlogOpen(true)}
               >
-                <span>Actualités</span>
+                <span>{t('nav.news')}</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
@@ -207,13 +209,39 @@ const Header = () => {
               )}
             </div>
             
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               onClick={() => handleLinkClick('#contact')}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
-              Contact
+              {t('nav.contact')}
             </a>
+
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-2 border-l border-gray-300 pl-4">
+              <button
+                onClick={() => setLanguage('fr')}
+                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
+                  language === 'fr'
+                    ? 'bg-blue-100 ring-2 ring-blue-500'
+                    : 'hover:bg-gray-100'
+                }`}
+                title="Français"
+              >
+                <span className="text-lg">🇫🇷</span>
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
+                  language === 'en'
+                    ? 'bg-blue-100 ring-2 ring-blue-500'
+                    : 'hover:bg-gray-100'
+                }`}
+                title="English"
+              >
+                <span className="text-lg">🇬🇧</span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -229,52 +257,52 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-4">
-              <a 
-                href="#accueil" 
+              <a
+                href="#accueil"
                 onClick={() => handleLinkClick('#accueil')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                Accueil
+                {t('nav.home')}
               </a>
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 onClick={() => handleLinkClick('#services')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                Services
+                {t('nav.services')}
               </a>
-              <a 
-                href="#prototypes" 
+              <a
+                href="#prototypes"
                 onClick={() => handleLinkClick('#prototypes')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                Solutions IA
+                {t('nav.aiSolutions')}
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 onClick={() => handleLinkClick('#about')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                À propos
+                {t('nav.about')}
               </a>
-              <a 
-                href="#realisations" 
+              <a
+                href="#realisations"
                 onClick={() => handleLinkClick('#realisations')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                Réalisations
+                {t('nav.realisations')}
               </a>
-              <a 
-                href="#prototypes" 
+              <a
+                href="#prototypes"
                 onClick={() => handleLinkClick('#prototypes')}
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
-                Prototypes
+                {t('nav.prototypes')}
               </a>
-              
+
               {/* Mobile Blog Submenu */}
               <div className="pl-4 space-y-2">
-                <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">Actualités</div>
+                <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">{t('nav.news')}</div>
                 {blogCategories.map((category, index) => (
                   <a
                     key={index}
@@ -286,14 +314,40 @@ const Header = () => {
                   </a>
                 ))}
               </div>
-              
-              <a 
-                href="#contact" 
+
+              <a
+                href="#contact"
                 onClick={() => handleLinkClick('#contact')}
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center"
               >
-                Contact
+                {t('nav.contact')}
               </a>
+
+              {/* Mobile Language Switcher */}
+              <div className="flex items-center justify-center space-x-3 pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => setLanguage('fr')}
+                  className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all ${
+                    language === 'fr'
+                      ? 'bg-blue-100 ring-2 ring-blue-500'
+                      : 'hover:bg-gray-100'
+                  }`}
+                  title="Français"
+                >
+                  <span className="text-xl">🇫🇷</span>
+                </button>
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all ${
+                    language === 'en'
+                      ? 'bg-blue-100 ring-2 ring-blue-500'
+                      : 'hover:bg-gray-100'
+                  }`}
+                  title="English"
+                >
+                  <span className="text-xl">🇬🇧</span>
+                </button>
+              </div>
             </div>
           </div>
         )}

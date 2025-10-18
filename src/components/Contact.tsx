@@ -53,7 +53,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{t('contact.phone')}</p>
-                    <p className="text-gray-600">+33 1 23 45 67 89</p>
+                    <p className="text-gray-600">+1 514 244 57 39</p>
                   </div>
                 </div>
 
@@ -63,7 +63,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{t('contact.email')}</p>
-                    <p className="text-gray-600">contact@ia-consult.fr</p>
+                    <p className="text-gray-600">info@ia-consult.com</p>
                   </div>
                 </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{t('contact.address')}</p>
-                    <p className="text-gray-600">123 Avenue de l'Innovation<br />75001 Paris, France</p>
+                    <p className="text-gray-600">1882 Boulevard Bastien<br />Quebec, Canada</p>
                   </div>
                 </div>
               </div>

@@ -43,18 +43,6 @@ const Blog = () => {
       image: "https://images.pexels.com/photos/8386427/pexels-photo-8386427.jpeg?auto=compress&cs=tinysrgb&w=600",
       tags: ["Chatbots", "ROI", "Automatisation"]
     }
- {
-      title: "Audit en intelligence artificielle e",
-      excerpt: "Les services de conseil et d'audit en intelligence artificielle (IA) se concentrent sur l'évaluation de la maturité technologique et des processus métiers d'une entreprise afin d'identifier les opportunités concrètes d'optimisation, d'automatisation et d'innovation grâce à l'IA.
- Ces audits permettent de cartographier les processus existants, d'identifier les tâches chronophages et les inefficacités, tout en évaluant la qualité des données et l'interopérabilité des systèmes.
- L'objectif est de déterminer où et comment l'IA peut être intégrée de manière stratégique pour améliorer la productivité, réduire les coûts et accélérer la prise de décision.",
-      author: "Lucas",
-      date: "8 Janvier 2025",
-      readTime: "7 min",
-      category: "Chatbots",
-      image: "https://images.pexels.com/photos/8386427/pexels-photo-8386427.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["Chatbots", "ROI", "Automatisation"]
-    }
     
   ];
 

@@ -72,7 +72,7 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-blue-400 mt-1" />
                 <span className="text-gray-300">
                   1882 Boulevard Bastien<br />
-                  Quebec, Canada
+                  Québec, Canada
                 </span>
               </div>
             </div>

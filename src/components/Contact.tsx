@@ -73,7 +73,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{t('contact.address')}</p>
-                    <p className="text-gray-600">1882 Boulevard Bastien<br />Quebec, Canada</p>
+                    <p className="text-gray-600">1882 Boulevard Bastien<br />Québec, Canada</p>
                   </div>
                 </div>
               </div>
